@@ -1,6 +1,13 @@
+# arg hack for dependabot
+ARG BASE_IMAGE=default
+
+FROM FROM ubuntu:jammy AS default
+
 # Golang builder image
-FROM --platform=$BUILDPLATFORM golang:1.20 as builder
+FROM golang:latest@sha256:52921e63cc544c79c111db1d8461d8ab9070992d9c636e1573176642690c14b5 as builder
 
 # Base image to update
-FROM gcr.io/k8s-staging-build-image/debian-base-amd64:buster-v1.10.0
+FROM BASE_IMAGE as base
+
+FROM gcr.io/gke-release/gke-distroless/bash:20220406 as bash
 
