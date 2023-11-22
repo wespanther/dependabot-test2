@@ -9,5 +9,5 @@ FROM golang:latest@sha256:52921e63cc544c79c111db1d8461d8ab9070992d9c636e15731766
 # Base image to update
 FROM BASE_IMAGE as base
 
-FROM gcr.io/gke-release/gke-distroless/bash:20220406 as bash
+FROM gcr.io/gke-release/gke-distroless/bash:20220419 as bash
 
